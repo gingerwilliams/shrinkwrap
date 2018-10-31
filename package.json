@@ -1,0 +1,35 @@
+{
+  "name": "react-shrinkwrap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --mode development --hot --open --config ./webpack.dev.config.js",
+    "watch": "webpack  --mode development --watch --config ./webpack.dev.config.js",
+    "build": "webpack --mode production --config ./webpack.prod.config.js"
+  },
+  "keywords": [],
+  "author": "Ginja the Ninja",
+  "license": "ISC",
+  "devDependencies": {
+    "babel": "6.23.0",
+    "babel-core": "6.26.3",
+    "babel-env": "2.4.1",
+    "babel-eslint": "10.0.1",
+    "babel-loader": "7.1.5",
+    "babel-polyfill": "6.26.0",
+    "babel-preset-react": "6.24.1",
+    "css-loader": "1.0.1",
+    "eslint": "5.8.0",
+    "file-loader": "2.0.0",
+    "less-loader": "4.1.0",
+    "react": "16.6.0",
+    "react-dom": "16.6.0",
+    "react-router-dom": "4.3.1",
+    "style-loader": "0.23.1",
+    "webpack": "4.23.1",
+    "webpack-cli": "3.1.2",
+    "webpack-dev-server": "3.1.10"
+  }
+}
