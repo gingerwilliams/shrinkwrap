@@ -28,12 +28,12 @@ class App extends React.Component {
     handleSubmit(event) {
         console.log(this.state);
         event.preventDefault();
-        return (this.state.username === "test") && ( this.state.password === "123") ? console.log("youre logged in") : console.log("invalid"); 
+        return (this.state.username === "test") && ( this.state.password === "123") ? console.log("youre logged in") : console.log("invalid user"); 
     }
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit} action="#" className="tile tile_box tile_border" style={{'width': '400px'}}>
+            <form onSubmit={this.handleSubmit} action="#" className="tile tile_box tile_border" style={{'width': '400px', 'margin': 'auto'}}>
 
                 <div className="input-text_box">
 	                <label className="label_text label_box">Username<span className="label_required">*</span></label>
