@@ -19,5 +19,9 @@ notice: package-lock.json is replaced with npm-shrinkwrap.json. One key detail a
 
 ![alt text](https://raw.githubusercontent.com/gingerwilliams/gingerwilliams.github.io/master/images/shrinkwrap/npmvet-r_Inlinetable.png)
 
-React Documents
+# React Documents
 <!-- https://reactjs.org/docs/forms.html -->
+
+# Jest 
+<!-- https://jestjs.io/docs/en/tutorial-react -->
+The snapshot should be committed along code changes. When a snapshot test fails, you need to inspect whether it is an intended or unintended change. If the change is expected you can invoke Jest with ```jest -u``` to overwrite the existing snapshot.
