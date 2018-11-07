@@ -33,7 +33,17 @@ class App extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit} action="#" className="tile tile_box tile_border" style={{'width': '400px'}}>
+
+            <div>
+                                                
+                <div className="header-base_wrap">
+                    <header className="header-base header-base_box">
+                        <a className="logo logo_box logo_newell-brands-base"></a>
+                        <div className="header-base_title" alt="Website Title">Website Title</div>
+                    </header>
+                </div>
+            
+                <form onSubmit={this.handleSubmit} action="#" className="tile tile_box tile_border" style={{'width': '400px'}}>
 
                 <div className="input-text_box">
 	                <label className="label_text label_box">Username<span className="label_required">*</span></label>
@@ -62,6 +72,10 @@ class App extends React.Component {
                 </button>
 
             </form>
+                
+                <div className="text-align__center">this is my app</div>
+            </div>
+
         )
     }
 }
