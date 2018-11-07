@@ -1,108 +1,71 @@
 import React from "react";
-import {
-    HashRouter as Router,
-    Route,
-    Link,
-    Redirect,
-    withRouter
-} from "react-router-dom";
-import Public from "./Public";
-import Protected from "./Protected";
+
 
 class App extends React.Component {
-    render() {
-        return (
-            <Router>
-                <div>
-                    <AuthButton />
-                    <ul>
-                        <li>
-                            <Link to="/public">Public Page</Link>
-                        </li>
-                        <li>
-                            <Link to="/protected">Protected Page</Link>
-                        </li>
-                    </ul>
-                    <Route path="/public" component={Public} />
-                    <Route path="/login" component={Login} />
-                    <PrivateRoute path="/protected" component={Protected} />
-                </div>
-            </Router>
-        );
+
+    
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: "",
+            password: ""
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
-}
 
-const fakeAuth = {
-    isAuthenticated: false,
-    authenticate(cb) {
-        this.isAuthenticated = true;
-        setTimeout(cb, 100); // fake async
-    },
-    signout(cb) {
-        this.isAuthenticated = false;
-        setTimeout(cb, 100);
-    }
-};
+    handleChange = (event) => {
+        console.log("change");
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
 
-const AuthButton = withRouter(
-    ({ history }) =>
-        fakeAuth.isAuthenticated ? (
-            <p>
-                Welcome!{" "}
-                <button
-                    onClick={() => {
-                        fakeAuth.signout(() => history.push("/"));
-                    }}
-                >
-                    Sign out
-                </button>
-            </p>
-        ) : (
-            <p>You are not logged in.</p>
-        )
-);
-
-function PrivateRoute({ component: Component, ...rest }) {
-    return (
-        <Route
-            {...rest}
-            render={props =>
-                fakeAuth.isAuthenticated ? (
-                    <Component {...props} />
-                ) : (
-                    <Redirect
-                        to={{
-                            pathname: "/login",
-                            state: { from: props.location }
-                        }}
-                    />
-                )
-            }
-        />
-    );
-}
-
-class Login extends React.Component {
-    state = { redirectToReferrer: false };
-
-    login = () => {
-        fakeAuth.authenticate(() => {
-            this.setState({ redirectToReferrer: true });
+        this.setState({
+            // username: event.target.value,
+            // password: event.target.value
+            [name]: value
         });
-    };
+    }
+
+    handleSubmit(event) {
+        console.log(this.state);
+        event.preventDefault();
+        return (this.state.username === "test") && ( this.state.password === "123") ? console.log("youre logged in") : console.log("invalid"); 
+    }
 
     render() {
-        let { from } = this.props.location.state || { from: { pathname: "/" } };
-        let { redirectToReferrer } = this.state;
-
-        if (redirectToReferrer) return <Redirect to={from} />;
-
         return (
-            <div>
-                <p>You must log in to view the page at {from.pathname}</p>
-                <button onClick={this.login}>Log in</button>
-            </div>
-        );
+            <form onSubmit={this.handleSubmit} action="#" className="tile tile_box tile_border" style={{'width': '400px'}}>
+
+                <div className="input-text_box">
+	                <label className="label_text label_box">Username<span className="label_required">*</span></label>
+                    <input 
+                        name="username"  
+                        type="text"
+                        username={this.state.username}
+                        onChange={this.handleChange} 
+                        className="input-text_border input-text_text input-text_theme"
+                    />
+	            </div>
+
+                <div className="input-password input-password_box">
+                    <label className="label_text label_box">Password <span className="label_required">*</span></label>
+                    <input 
+                        name="password"
+                        type="password"
+                        password={this.state.password}
+                        onChange={this.handleChange}
+                        className="input-text_border input-text_text input-text_theme"
+                    />
+                </div>
+
+                <button className="button button_box button__center button_theme" type="submit" value="Submit">
+                    <span className="button_text button_theme__text">Login</span>
+                </button>
+
+            </form>
+        )
     }
 }
 
