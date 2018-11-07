@@ -28,7 +28,7 @@ class App extends React.Component {
     handleSubmit(event) {
         console.log(this.state);
         event.preventDefault();
-        return (this.state.username === "test") && ( this.state.password === "123") ? console.log("youre logged in") : console.log("invalid"); 
+        return (this.state.username === "test") && ( this.state.password === "123") ? console.log("youre logged in") : console.log("invalid user"); 
     }
 
     render() {
