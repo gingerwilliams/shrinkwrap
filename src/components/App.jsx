@@ -1,4 +1,6 @@
 import React from "react";
+import Link from "./Link";
+
 
 class App extends React.Component {
 
@@ -42,6 +44,8 @@ class App extends React.Component {
                         <div className="header-base_title" alt="Website Title">React Shrinkwrap and Login</div>
                     </header>
                 </div>
+
+                <Link />
             
                 <form onSubmit={this.handleSubmit} action="#" className="tile tile_box tile_border" style={{'width': '400px', 'margin': 'auto'}}>
 
@@ -72,6 +76,10 @@ class App extends React.Component {
                     </button>
 
                 </form>
+
+
+
+                
                 
             </div>
 
