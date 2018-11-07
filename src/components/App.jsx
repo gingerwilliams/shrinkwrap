@@ -43,7 +43,7 @@ class App extends React.Component {
                     </header>
                 </div>
             
-                <form onSubmit={this.handleSubmit} action="#" className="tile tile_box tile_border" style={{'width': '400px'}}>
+                <form onSubmit={this.handleSubmit} action="#" className="tile tile_box tile_border" style={{'width': '400px', 'margin': 'auto'}}>
 
                     <div className="input-text_box">
                         <label className="label_text label_box">Username<span className="label_required">*</span></label>
@@ -73,7 +73,6 @@ class App extends React.Component {
 
                 </form>
                 
-                <div className="text-align__center">this is my app</div>
             </div>
 
         )
