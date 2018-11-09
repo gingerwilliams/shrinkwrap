@@ -1,9 +1,17 @@
 import React from "react";
-import Link from "./Link";
+import auth0 from 'auth0-js';
 
-import API_KEY from "../config_keys.js";
+import { AUTH_CONFIG } from "../config_keys.js";
 
 class App extends React.Component {
+    auth0 = new auth0.WebAuth({
+        domain: AUTH_CONFIG.DOMAIN,
+        clientID: AUTH_CONFIG.CLIENT_ID,
+        redirectUri: AUTH_CONFIG.CALLBACK_URL,
+        responseType: 'token id_token',
+        scope: 'openid'
+    });
+      
     constructor(props) {
         super(props);
         this.state = {
@@ -31,16 +39,16 @@ class App extends React.Component {
         console.log(this.state);
         event.preventDefault();
 
+        
+        // return (this.state.username === "test") && ( this.state.password === "123") ? console.log("youre logged in") : console.log("invalid user");
+        this.auth0.authorize();
+        
+
+        
+        
         //auth0.com/api/v2/
 
         // url: 'https://digi-con.auth0.com/api/v2/users',
-        // qs: { q: 'email:"jane@exampleco.com"', search_engine: 'v3' },
-        // headers: { authorization: 'Bearer YOUR_MGMT_API_ACCESS_TOKEN' } };
-
-        // return fetch('https://digi-con.auth0.com/api/v2/')
-        //     .then(res => res.json())
-        //     .then(json => console.log(json))
-        // return (this.state.username === "test") && ( this.state.password === "123") ? console.log("youre logged in") : console.log("invalid user");
 
         // var settings = {
         //     "async": true,
@@ -67,27 +75,29 @@ class App extends React.Component {
 
         // request(options, function(error, response, body) {
         //     if (error) throw new Error(error);
-
         //     console.log(body);
         // });
 
-        return fetch(`https://digi-con.auth0.com/api/v2/users`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-                authorization: `Bearer ${API_KEY}`
-            }
-        })
-        .then(res => res.json())
-        .then(json => 
-            console.log(json)
-        );
+        // return fetch(`https://digi-con.auth0.com/api/v2/users`, {
+        //     method: "GET",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //         Accept: "application/json",
+        //         authorization: `Bearer ${AUTH_CONFIG.API_KEY}`
+        //     }
+        // })
+        // .then(res => res.json())
+        // .then(json => 
+        //     console.log(json)
+        //     //(this.state.username === "test") && ( this.state.password === "123") ? console.log("youre logged in") : console.log("invalid user");
+
+        // );
     }
 
     render() {
         return (
             <div>
+                
                 <div className="header-base_wrap">
                     <header className="header-base header-base_box">
                         <a className="logo logo_box logo_newell-brands-base" />
@@ -97,15 +107,15 @@ class App extends React.Component {
                     </header>
                 </div>
 
-                <Link />
+                {/* <Link /> */}
 
                 <form
                     onSubmit={this.handleSubmit}
                     action="#"
                     className="tile tile_box tile_border"
-                    style={{ width: "400px", margin: "auto" }}
+                    style={{ width: "98%", margin: "auto", display: "flex" , flexDirection: "row-reverse"}}
                 >
-                    <div className="input-text_box">
+                    {/* <div className="input-text_box">
                         <label className="label_text label_box">
                             Username<span className="label_required">*</span>
                         </label>
@@ -116,9 +126,9 @@ class App extends React.Component {
                             onChange={this.handleChange}
                             className="input-text_border input-text_text input-text_theme"
                         />
-                    </div>
+                    </div> */}
 
-                    <div className="input-password input-password_box">
+                    {/* <div className="input-password input-password_box">
                         <label className="label_text label_box">
                             Password <span className="label_required">*</span>
                         </label>
@@ -129,7 +139,7 @@ class App extends React.Component {
                             onChange={this.handleChange}
                             className="input-text_border input-text_text input-text_theme"
                         />
-                    </div>
+                    </div> */}
 
                     <button
                         className="button button_box button__center button_theme"

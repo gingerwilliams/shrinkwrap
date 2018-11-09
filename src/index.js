@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from "./components/App";
+import MainRoutes from "./routes";
 
-ReactDOM.render(<App />, document.querySelector('#root'));
+ReactDOM.render(<MainRoutes />, document.querySelector('#root'));
 

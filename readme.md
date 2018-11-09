@@ -25,3 +25,9 @@ notice: package-lock.json is replaced with npm-shrinkwrap.json. One key detail a
 # Jest 
 <!-- https://jestjs.io/docs/en/tutorial-react -->
 The snapshot should be committed along code changes. When a snapshot test fails, you need to inspect whether it is an intended or unintended change. If the change is expected you can invoke Jest with ```jest -u``` to overwrite the existing snapshot.
+
+# React Router
+- ```<HashRouter>``` ignores the history prop. To use a custom history, use ````import { Router }```` instead of ````import { HashRouter as Router }````.
+-  A ```<Router>``` may have only one child element
+-  This section is for everyone who ran into this problem in development using webpack-dev-server.. Just as above, what we need to do it tell Webpack Dev Sever to redirect all server requests to /index.html. There are just two properties in your webpack config you need to set to do this, publicPath and historyApiFallback.
+<!-- - https://tylermcginnis.com/react-router-cannot-get-url-refresh/ -->
