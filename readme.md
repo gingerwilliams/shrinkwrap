@@ -1,4 +1,4 @@
-# ShrinkWrap Packages
+# React, Shrinkwrap, Login, and End to End Testing
 
 ## Install exact version of modules:
     npm install react --save --save-exact
@@ -28,3 +28,8 @@ The snapshot should be committed along code changes. When a snapshot test fails,
 
 # Cypress 
 <!-- https://docs.cypress.io/ -->
+
+# Auth0 authentication 
+<!-- https://auth0.com/docs/api/management/v2 -->
+- Dashboard
+    https://manage.auth0.com/#/

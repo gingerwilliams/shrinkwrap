@@ -41,7 +41,7 @@ class App extends React.Component {
                 <div className="header-base_wrap">
                     <header className="header-base header-base_box">
                         <a className="logo logo_box logo_newell-brands-base"></a>
-                        <div className="header-base_title" alt="Website Title">React Shrinkwrap and Login</div>
+                        <div className="header-base_title" alt="Website Title">React Shrinkwrap, Login and End to End Testing</div>
                     </header>
                 </div>
 
@@ -52,8 +52,10 @@ class App extends React.Component {
                     <div className="input-text_box">
                         <label className="label_text label_box">Username<span className="label_required">*</span></label>
                         <input 
+                            id="username"
                             name="username"  
                             type="text"
+                            autoFocus
                             username={this.state.username}
                             onChange={this.handleChange} 
                             className="input-text_border input-text_text input-text_theme"
@@ -63,6 +65,7 @@ class App extends React.Component {
                     <div className="input-password input-password_box">
                         <label className="label_text label_box">Password <span className="label_required">*</span></label>
                         <input 
+                            id="password"
                             name="password"
                             type="password"
                             password={this.state.password}
