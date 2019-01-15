@@ -16,14 +16,15 @@ class App extends React.Component {
 
     handleChange = (event) => {
         console.log("change");
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
+        // const target = event.target;
+        //// const value = event.target.value;
+        //// const name = event.target.name;
 
         this.setState({
             // username: event.target.value,
             // password: event.target.value
-            [name]: value
+            ////[name]: value
+            [event.target.name] : event.target.value
         });
     }
 
