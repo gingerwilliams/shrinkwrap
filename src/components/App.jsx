@@ -10,8 +10,9 @@ class App extends React.Component {
             username: "",
             password: ""
         };
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        //arrow functions bind this automatically
+        //this.handleChange = this.handleChange.bind(this); 
+        // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange = (event) => {
@@ -28,7 +29,7 @@ class App extends React.Component {
         });
     }
 
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         console.log(this.state);
         event.preventDefault();
         return (this.state.username === "test") && ( this.state.password === "123") ? console.log("youre logged in") : console.log("invalid user"); 
